@@ -1,10 +1,10 @@
 # Origin
 
-this repository is a merge of the original ot4i/iibdocker and ibm-messaging/mq-docker repositories on github
+This repository is a fork of the IIBv10 and MQv9 docker build repository from https://github.com/DAVEXACOM/IIB-MQ.
 
 # Overview
 
-This repository contains a Dockerfile and some scripts which demonstrate a way in which you might run [IBM Integration Bus](http://www-03.ibm.com/software/products/en/ibm-integration-bus) and IBM MQ in a [Docker](https://www.docker.com/whatisdocker/) container.
+This repository contains a Dockerfile and some scripts which demonstrate a way in which you might run [IBM Integration Bus](http://www-03.ibm.com/software/products/en/ibm-integration-bus) and IBM MQ in a [Docker](https://www.docker.com/whatisdocker/) container on [IBM Cloud Container Service](https://www.ibm.com/cloud/container-service).
 
 IBM would [welcome feedback](#issues-and-contributions) on what is offered here.
 
@@ -21,7 +21,7 @@ This will create an image called iibv10image in your local docker registry.
 
 # What the image contains
 
-The built image contains a full installation of [IBM Integration Bus for Developers Edition V10.0](https://ibm.biz/iibdevedn).  
+The built image contains a full installation of [IBM Integration Bus for Developers Edition V10.0](https://ibm.biz/iibdevedn) and [IBM MQ Advanced for Developers V9.0](https://www.ibm.com/au-en/marketplace/secure-messaging).  
 
 # Running a container
 
