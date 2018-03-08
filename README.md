@@ -8,16 +8,86 @@ This repository contains a Dockerfile and some scripts which demonstrate a way i
 
 IBM would [welcome feedback](#issues-and-contributions) on what is offered here.
 
+# Before you begin
+
+* [Container registry with namespace configured](https://console.bluemix.net/docs/services/Registry/registry_setup_cli_namespace.html)
+* [Basic understanding of Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
+
+# Create a Kubernetes cluster
+
+If you do not have a Kubernetes cluster on IBM Cloud Container Service, follow steps 1 and 2 under [Create a Kubernetes cluster](https://console.bluemix.net/docs/tutorials/scalable-webapp-kubernetes.html#deploy-a-scalable-web-application-on-kubernetes) to create a new cluster. You can use an existing cluster if you have one.
+
+# Configure kubectl and helm
+
+Follow instructions under [Configure kubectl and helm](https://console.bluemix.net/docs/tutorials/scalable-webapp-kubernetes.html#deploy-a-scalable-web-application-on-kubernetes) to configure command line tools [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/) and [helm](https://helm.sh/).
+
 # Building the image
 
-The image can be built using standard [Docker commands](https://docs.docker.com/userguide/dockerimages/) against the supplied Dockerfile.  For example:
+1. Clone the app to your local environment from your terminal using the following command
 
-~~~
-cd 10.0.0.7
-docker build -t iibv10image .
-~~~
+    ```
+      git clone https://github.com/andrewyuau/IIB-MQ.git
+    ```
 
-This will create an image called iibv10image in your local docker registry.
+2. `cd` into the `IIB-MQ` folder that you cloned
+
+    ```
+      cd IIB-MQ
+    ```
+
+3. Start the Docker engine on your local computer
+   > See the [Docker installation instructions](https://docs.docker.com/engine/installation/) if you don't yet have the Docker engine installed locally or need help in starting it.
+
+4. Log the local Docker client in to IBM Bluemix Container Registry:
+
+   ```
+   bx cr login
+   ```
+
+   > This will configure your local Docker client with the right credentials to be able to push images to the Bluemix Container Registry.
+
+5. Retrieve the name of the namespace you are going to use to push your Docker images:
+
+   ```
+   bx cr namespace-list
+   ```
+
+   > If you don't have a namespace, you can create one with `bx cr namespace-add mynamespace` as example.
+
+6. Check that you have installed **Container Registry plugin** and **Container Service plugin** with this command
+    ```
+    bx plugin list
+    ```
+    > Output:   
+          Listing installed plug-ins...           
+          Plugin Name          Version   
+          cloud-functions      1.0.7   
+          container-registry   0.1.292   
+          container-service    0.1.462   
+          dev                  1.1.4   
+          schematics           1.3.4   
+          sdk-gen              0.1.9   
+          IBM-Containers       1.0.1028 
+
+7. Modify the kubernetes.yml with replacing the **namespace** with your namespace. ![Application Diagram](ReadMeImages/code-snipts.png)  
+
+
+8. Build the Docker image of the service
+
+   > In the following steps, make sure to replace `<namespace>` with your namespace name and `ng` with the region of your registry.
+
+   ```
+   docker build -t registry.ng.bluemix.net/<namespace>/iib-mq:latest .   
+   ```
+   This takes a couple of hours, go and have a cup of coffee.
+
+9. Push the image to the registry
+
+   ```
+   docker push registry.ng.bluemix.net/<namespace>/iib-mq:latest
+   ```
+
+
 
 # What the image contains
 
