@@ -1,4 +1,4 @@
-# © Copyright IBM Corporation 2015.
+# ï¿½ Copyright IBM Corporation 2015.
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Eclipse Public License v1.0
@@ -43,6 +43,10 @@ RUN apt-get dist-upgrade -y
 ARG MQ_URL=http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/messaging/mqadv/mqadv_dev903_linux_x86-64.tar.gz
 ARG MQ_PACKAGES="MQSeriesRuntime-*.rpm MQSeriesServer-*.rpm MQSeriesMsg*.rpm MQSeriesJava*.rpm MQSeriesJRE*.rpm MQSeriesGSKit*.rpm MQSeriesWeb*.rpm"
 
+# Accept the MQ license
+# Install MQ using the RPM packages
+# Recommended: Set the default MQ installation (makes the MQ commands available on the PATH)
+# Clean up all the downloaded files
 RUN mkdir -p /tmp/mq \
   	&& cd /tmp/mq \
   	&& curl -LO $MQ_URL \
@@ -51,13 +55,9 @@ RUN mkdir -p /tmp/mq \
   	&& useradd --create-home --home-dir /home/mqm --uid 1000 --gid mqm mqm \
   	&& usermod -G mqm root \
 	&& cd /tmp/mq/MQServer \
-	# Accept the MQ license
-  	&& ./mqlicense.sh -text_only -accept \
-  	# Install MQ using the RPM packages
+    && ./mqlicense.sh -text_only -accept \
   	&& rpm -ivh --force-debian $MQ_PACKAGES \
-  	# Recommended: Set the default MQ installation (makes the MQ commands available on the PATH)
   	&& /opt/mqm/bin/setmqinst -p /opt/mqm -i \
-  	# Clean up all the downloaded files
   	&& rm -rf /tmp/mq \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/mqm \
