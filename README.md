@@ -14,8 +14,10 @@ IBM would [welcome feedback](#issues-and-contributions) on what is offered here.
 * [Basic understanding of Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
 * If you do not have a Kubernetes cluster on IBM Cloud Container Service, follow steps 1 and 2 under [Create a Kubernetes cluster](https://console.bluemix.net/docs/tutorials/scalable-webapp-kubernetes.html#deploy-a-scalable-web-application-on-kubernetes) to create a new cluster. You can use an existing cluster if you have one.
 
-# To get started, click this button
+# To create the IIB-MQ container automatically using IBM Cloud Continuous Delivery, click this button
 [![Create toolchain](https://console.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/andrewyuau/IIB-MQ)
+
+# To create the IIB-MQ container manually, follow the instructions below
 
 # Configure kubectl and helm
 
