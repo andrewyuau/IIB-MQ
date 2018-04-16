@@ -71,10 +71,7 @@ Follow instructions under [Configure kubectl and helm](https://console.bluemix.n
           sdk-gen              0.1.9   
           IBM-Containers       1.0.1028 
 
-7. Modify the kubernetes.yml with replacing the **namespace** with your namespace. ![Application Diagram](ReadMeImages/code-snipts.png)  
-
-
-8. Build the Docker image of the service
+7. Build the Docker image of the service
 
    > In the following steps, make sure to replace `<namespace>` with your namespace name and `ng` with the region of your registry.
 
@@ -83,7 +80,7 @@ Follow instructions under [Configure kubectl and helm](https://console.bluemix.n
    ```
    This takes a couple of hours, go and have a cup of coffee.
 
-9. Push the image to the registry
+8. Push the image to the registry
 
    ```
    docker push registry.ng.bluemix.net/<namespace>/iib-mq:latest
