@@ -10,7 +10,7 @@ IBM® MQ is messaging middleware that simplifies and accelerates the integration
 
 ![IIB Logo](https://ot4i.github.com/iib-helm/ibm-integration-bus-dev/IBM_Integration_Bus_Icon.svg)
 
-IBM® Integration Bus is a market-leading lightweight enterprise integration engine that offers a fast, simple way for systems and applications to communicate with each other. As a result, it can help you achieve business value, reduce IT complexity and save money. IBM Integration Bus supports a range of integration choices, skills and interfaces to optimize the value of existing technology investments. 
+IBM® Integration Bus is a market-leading lightweight enterprise integration engine that offers a fast, simple way for systems and applications to communicate with each other. As a result, it can help you achieve business value, reduce IT complexity and save money. IBM Integration Bus supports a range of integration choices, skills and interfaces to optimize the value of existing technology investments.
 
 
 # Introduction
@@ -54,8 +54,8 @@ The following table lists the configurable parameters of the `iib-mq` chart and 
 | Parameter                        | Description                                     | Default                                                    |
 | -------------------------------- | ----------------------------------------------- | ---------------------------------------------------------- |
 | `license`                        | Set to `accept` to accept the terms of the IBM license  | `not accepted`                                     |
-| `image.repository`               | Image full name including repository            | `ibmcom/mq`                                                |
-| `image.tag`                      | Image tag                                       | `9`                                                        |
+| `image.repository`               | Image full name including repository            | `iib-mq`                                                |
+| `image.tag`                      | Image tag                                       | `latest`                                                        |
 | `image.pullPolicy`               | Image pull policy                               | `IfNotPresent`                                             |
 | `image.pullSecret`               | Image pull secret, if you are using a private Docker registry | `nil`                                        |
 | `persistence.enabled`           | Use persistent volumes for all defined volumes                  | `true`                                     |
@@ -64,11 +64,11 @@ The following table lists the configurable parameters of the `iib-mq` chart and 
 | `dataPVC.storageClassName`      | Storage class of volume for main MQ data (under `/var/mqm`)     | `""`                                       |
 | `dataPVC.size`                  | Size of volume for main MQ data (under `/var/mqm`)              | `2Gi`                                      |
 | `service.name`                   | Name of the Kubernetes service to create        | `qmgr`                                                     |
-| `service.type`                   | Kubernetes service type exposing ports, e.g. `NodePort`       | `ClusterIP`                                  |
-| `resources.limits.cpu`          | Kubernetes CPU limit for the Queue Manager container | `500m`                                                   |
-| `resources.limits.memory`       | Kubernetes memory limit for the Queue Manager container | `512Mi`                                              |
-| `resources.requests.cpu`        | Kubernetes CPU request for the Queue Manager container | `500m`                                                 |
-| `resources.requests.memory`     | Kubernetes memory request for the Queue Manager container | `512Mi`                                            |
+| `service.type`                   | Kubernetes service type exposing ports, e.g. `NodePort`       | `NodePort`                                  |
+| `resources.limits.cpu`          | Kubernetes CPU limit for the Queue Manager container | `2`                                                   |
+| `resources.limits.memory`       | Kubernetes memory limit for the Queue Manager container | `2048Mi`                                              |
+| `resources.requests.cpu`        | Kubernetes CPU request for the Queue Manager container | `1`                                                 |
+| `resources.requests.memory`     | Kubernetes memory request for the Queue Manager container | `1024Mi`                                            |
 | `queueManager.name`              | MQ Queue Manager name                           | Helm release name                                          |
 | `queueManager.dev.adminPassword` | Developer defaults - administrator password     | Random generated string.  See the notes that appear when you install for how to retrieve this.                            |
 | `queueManager.dev.appPassword`   | Developer defaults - app password   | `nil` (no password required to connect an MQ client)                   |
@@ -89,4 +89,3 @@ The chart mounts a [Persistent Volume](http://kubernetes.io/docs/user-guide/pers
 # Copyright
 
 © Copyright IBM Corporation 2017
-
