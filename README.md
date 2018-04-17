@@ -17,6 +17,11 @@ IBM would [welcome feedback](#issues-and-contributions) on what is offered here.
 # To create the IIB-MQ container automatically using IBM Cloud Continuous Delivery, click this button
 [![Create toolchain](https://console.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/andrewyuau/IIB-MQ)
 
+1. Select the region and organization of your Continuous Delivery service if you have one, otherwise it will be created automatically for you.
+![toolchain1](images/toolchain1.jpeg)
+
+2. 
+
 # To create the IIB-MQ container manually, follow the instructions below
 
 # Configure kubectl and helm
