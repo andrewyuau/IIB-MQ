@@ -23,7 +23,7 @@ IBM would [welcome feedback](#issues-and-contributions) on what is offered here.
 2. You can leave the settings for Git Repos and Issue Tracking and Eclipse Orion Web IDE as default.
 ![toolchain2](images/toolchain2.jpeg)
 
-3. For Delivery Pipeline, rename the app name to something easy to remember. Put in the API key created earlier. You should then be able to select your Container registry region and namespace. Select your Cluster region and name, then type in any Cluster namespace, eg. prod.
+3. For Delivery Pipeline, rename the app name to something easy to remember. Put in the API key created earlier. You should then be able to select your Container registry region and namespace. Select your Cluster region and name, then type in any Cluster namespace, eg. prod. Once finished, click 'Create'.
 ![toolchain3](images/toolchain3.jpeg)
 
 # To create the IIB-MQ container manually, follow the instructions below
