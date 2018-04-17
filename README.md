@@ -12,7 +12,7 @@ IBM would [welcome feedback](#issues-and-contributions) on what is offered here.
 
 * [Container registry with namespace configured](https://console.bluemix.net/docs/services/Registry/registry_setup_cli_namespace.html)
 * If you do not have a Kubernetes cluster on IBM Cloud Container Service, follow steps 1 and 2 under [Create a Kubernetes cluster](https://console.bluemix.net/docs/tutorials/scalable-webapp-kubernetes.html#deploy-a-scalable-web-application-on-kubernetes) to create a new cluster. You can use an existing cluster if you have one.
-* Create a service ID with at least Editor permissions for the IBM Cloud Container Service and assign an API key. Instructions ca be found [here](https://www.ibm.com/blogs/bluemix/2017/10/introducing-ibm-cloud-iam-service-ids-api-keys/).
+* Create a service ID with at least Editor permissions for the IBM Cloud Container Service and assign an API key. Instructions can be found [here](https://www.ibm.com/blogs/bluemix/2017/10/introducing-ibm-cloud-iam-service-ids-api-keys/).
 
 # To create the IIB-MQ container automatically using IBM Cloud Continuous Delivery, click this button
 [![Create toolchain](https://console.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/andrewyuau/IIB-MQ)
