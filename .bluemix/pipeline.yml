@@ -222,6 +222,9 @@ stages:
         if [[ ${STATUS} == *OK* ]]; then
           break
         fi
+        if [[ ${STATUS} == *WARN* ]]; then
+          break
+        fi
         echo -e "${ITER} STATUS ${STATUS} : A vulnerability report was not found for the specified image."
         echo "Either the image doesn't exist or the scan hasn't completed yet. "
         echo "Waiting for scan to complete.."
@@ -479,6 +482,6 @@ stages:
       echo "=========================================================="
       IP_ADDR=$(bx cs workers ${PIPELINE_KUBERNETES_CLUSTER_NAME} | grep normal | head -n 1 | awk '{ print $2 }')
       MQ_PORT=$(kubectl get services --namespace ${CLUSTER_NAMESPACE} | grep ${RELEASE_NAME} | awk -F':' '{print $3}' | awk -F'/TCP,' '{print $1}')
-      IIB_PORT=$(kubectl get services --namespace ${CLUSTER_NAMESPACE} | grep ${RELEASE_NAME} | awk -F':' '{print $3}' | awk -F'/TCP,' '{print $1}')
+      IIB_PORT=$(kubectl get services --namespace ${CLUSTER_NAMESPACE} | grep ${RELEASE_NAME} | awk -F':' '{print $4}' | awk -F'/TCP,' '{print $1}')
       echo -e "View the MQ console at: https://${IP_ADDR}:${MQ_PORT}"
       echo -e "View the IIB console at: http://${IP_ADDR}:${IIB_PORT}"
