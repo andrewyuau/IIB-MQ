@@ -26,6 +26,21 @@ IBM would [welcome feedback](#issues-and-contributions) on what is offered here.
 3. For Delivery Pipeline, rename the app name to something easy to remember. Put in the API key created earlier. You should then be able to select your Container registry region and namespace. Select your Cluster region and name, then type in any Cluster namespace, eg. prod. Once finished, click 'Create'.
 ![toolchain3](images/toolchain3.jpeg)
 
+4. You should see a message saying that our toolchain is ready. Click on the Delivery Pipeline.
+![toolchain4](images/toolchain4.jpeg)
+
+5. You should see the Build stage running now. It will take some time to build the Docker image if it is your first time.
+![toolchain5](images/toolchain5.jpeg)
+
+6. Lastly, your PROD stage will pass. Click on 'View logs and history' in the PROD section.
+![toolchain6](images/toolchain6.jpeg)
+
+7. Click on 'Deploy Helm chart' to view the logs for the deploy job.
+![toolchain7](images/toolchain7.jpeg)
+
+8. Scroll to the bottom and click on the links to access your MQ (admin/passw0rd) and IIB consoles. Congratulations!
+![toolchain8](images/toolchain8.jpeg)
+
 # To create the IIB-MQ container manually, follow the instructions below
 
 # Configure kubectl and helm
