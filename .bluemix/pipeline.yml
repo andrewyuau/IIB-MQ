@@ -233,7 +233,7 @@ stages:
       set +e
       bx cr va ${PIPELINE_IMAGE_URL}
       set -e
-      [[ $(bx cr va -e -o json ${PIPELINE_IMAGE_URL} | jq '.[0].status') == *OK* ]] || { echo "ERROR: The vulnerability scan was not successful, check the OUTPUT of the command and try again."; exit 1; }
+      [[ $(bx cr va -e -o json ${PIPELINE_IMAGE_URL} | jq '.[0].status') == *OK* ]] || [[ $(bx cr va -e -o json ${PIPELINE_IMAGE_URL} | jq '.[0].status') == *WARN* ]] || { echo "ERROR: The vulnerability scan was not successful, check the OUTPUT of the command and try again."; exit 1; }
 - name: PROD
   inputs:
   - type: job
